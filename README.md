@@ -10,6 +10,19 @@ It simplifies the process of running SQL queries and ensures best practices such
 - **Seamless SQLite Connection Management**: Easily manage SQLite database connections without the hassle.
 - **External Execute Function**: Provides a handy external function to execute SQL commands, making it easier to integrate into other modules.
 - **Foreign Key Support**: Automatically enables FOREIGN KEYS for SQLite 3 out of the box.
+
+## Installation
+
+To set up SQLiteX33 in your project:
+
+1. **Download**:
+   Download the `sqlite_x33.py` file from this repository.
+
+2. **Place in Project Directory**:
+   Move the `sqlite_x33.py` file to the root directory of your project, or where you plan on using SQLiteX33.
+
+3. **Import and Use**:
+   Follow the usage instructions below to get started with SQLiteX33.
   
 ## Usage
 
