@@ -1,8 +1,8 @@
 import sqlite3 as sql
 
-class SQLiteDBManager:
+class SQLiteX33:
     """A streamlined SQLite Database Context Manager that makes it easy to run SQL queries. The module includes an outer execute() function, allowing SQL commands to be run from other 
-    modules via "import sql_mgr as sql". In practice, you can use sql.execute(db, query), where 'db' specifies the database and 'query' holds the SQL query string. Have fun! /hodel33 & dyaland
+    modules via "import sqlite_x33 as sql". In practice, you can use sql.execute(db, query), where 'db' specifies the database and 'query' holds the SQL query string. Have fun! /hodel33 & dyaland
     """
 
     def __init__(self, db_file_path:str):
