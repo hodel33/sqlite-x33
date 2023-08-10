@@ -29,5 +29,5 @@ class SQLiteX33:
         return self.cursor.fetchall()
 
 def execute(filename:str, query:str):
-    with SQLiteDBManager(filename) as sql:
+    with SQLiteX33(filename) as sql:
         return(sql.execute_query(query))
