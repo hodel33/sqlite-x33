@@ -2,7 +2,7 @@
 
 ## Introduction
 
-SQLiteX33 is a lightweight and streamlined context manager for SQLite databases.<br>
+SQLiteX33 is a lightweight and streamlined context manager for SQLite databases in Python.<br>
 It simplifies the process of running SQL queries and ensures best practices such as committing transactions and closing connections.
 
 ## Features
@@ -19,14 +19,16 @@ To set up SQLiteX33 in your project:
    Download the `sqlite_x33.py` file from this repository.
 
 2. **Place in Project Directory**:
-   Move the `sqlite_x33.py` file to the root directory of your project, or where you plan on using SQLiteX33.
+   Move the `sqlite_x33.py` file to the root directory of your Python project, or where you plan on using SQLiteX33.
 
 3. **Import and Use**:
    Follow the usage instructions below to get started with SQLiteX33.
   
 ## Usage
 
-### 1. Import the module
+### 1. Import the Python Module
+
+To use SQLiteX33, first import the module in your Python script:
 
 ```python
 import sqlite_x33 as sql
