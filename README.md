@@ -19,7 +19,7 @@ It simplifies the process of running SQL queries and ensures best practices such
 
 2. **IDE**: For code editing, [VS Code (Visual Studio Code)](https://code.visualstudio.com/) is recommended. Enhance your Python experience by adding the [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
-3. **SQLite VSCode Extension (Optional)**: For easier overview and editing of SQLite databases, it's good to have an SQLite extension. [@yy0931's SQLite3 Editor for VSCode](https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor) is highly recommended.
+3. **SQLite Extension (Optional)**: For easier overview and editing of SQLite databases, it's good to have an SQLite extension. [@yy0931's SQLite3 Editor for VSCode](https://marketplace.visualstudio.com/items?itemName=yy0931.vscode-sqlite3-editor) is highly recommended.
 
 
 ### Steps
