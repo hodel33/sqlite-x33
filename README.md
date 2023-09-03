@@ -1,6 +1,6 @@
 # SQLiteX33
 
-## Overview
+## 📋 Overview
 
 SQLiteX33 is a lightweight and streamlined context manager for SQLite databases in Python.<br>
 It simplifies the process of running SQL queries and ensures best practices such as committing transactions and closing connections.
@@ -11,7 +11,7 @@ It simplifies the process of running SQL queries and ensures best practices such
 - **External Execute Function**: Provides a handy external function to execute SQL commands, making it easier to integrate into other modules.
 - **Foreign Key Support**: Automatically enables FOREIGN KEYS for SQLite 3 out of the box.
 
-## Installation
+## ⚙️ Installation
 
 ### Prerequisites
 
@@ -35,7 +35,7 @@ To set up SQLiteX33 in your project:
 3. **Import and Use**:
    Follow the usage instructions below to get started with SQLiteX33.
   
-## Usage
+## 🔧 Usage
 
 ### 1. Import the Python Module
 
@@ -67,11 +67,20 @@ Deleting Data
 sql.execute("path_to_db.db", "DELETE FROM table_name WHERE column1 = 'value1'")
 ```
 
-## Important Notes
+## ❗ Important Notes
 
 - The sql.execute() function returns the result of a SELECT query. If the SQL command was an INSERT/UPDATE/DELETE, it returns None.
 - Ensure the SQLite database file path provided is correct.
 
-## Credits
+## 💡 Credits
 
 Developed by [hodel33](https://github.com/hodel33) & [dyaland](https://github.com/dyaland). Enjoy and have fun! 🚀
+
+## 💬 Feedback & Contact
+
+I'd love to network, discuss tech, or swap music recommendations. Feel free to connect with me on:
+
+🌐 **LinkedIn**: [Björn Hödel](https://www.linkedin.com/in/bjornhodel)<br>
+🐦 **Twitter**: [@hodel33](https://twitter.com/hodel33)<br>
+📸 **Instagram**: [@hodel33](https://www.instagram.com/hodel33)<br>
+📧 **Email**: [hodel33@gmail.com](mailto:hodel33@gmail.com)
