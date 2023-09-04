@@ -5,7 +5,7 @@
 SQLiteX33 is a lightweight and streamlined context manager for SQLite databases in Python.<br>
 It simplifies the process of running SQL queries and ensures best practices such as committing transactions and closing connections.
 
-### Features
+### 🌟 Features
 
 - **Seamless SQLite Connection Management**: Easily manage SQLite database connections without the hassle.
 - **External Execute Function**: Provides a handy external function to execute SQL commands, making it easier to integrate into other modules.
@@ -38,7 +38,7 @@ To set up SQLiteX33 in your project:
 
 <br>
 
-## 🔧 Usage
+## 🚀 Usage
 
 ### 1. Import the Python Module
 
@@ -72,7 +72,7 @@ sql.execute("path_to_db.db", "DELETE FROM table_name WHERE column1 = 'value1'")
 
 <br>
 
-## ❗ Important Notes
+## ⚠️ Important Notes
 
 - The sql.execute() function returns the result of a SELECT query. If the SQL command was an INSERT/UPDATE/DELETE, it returns None.
 - Ensure the SQLite database file path provided is correct.
@@ -81,7 +81,7 @@ sql.execute("path_to_db.db", "DELETE FROM table_name WHERE column1 = 'value1'")
 
 ## 💡 Credits
 
-Developed by [hodel33](https://github.com/hodel33) & [dyaland](https://github.com/dyaland). Enjoy and have fun! 🚀
+Developed by [hodel33](https://github.com/hodel33) & [dyaland](https://github.com/dyaland). Enjoy and have fun! 💫
 
 <br>
 
