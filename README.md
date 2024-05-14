@@ -75,6 +75,7 @@ sql.execute("path_to_db.db", "DELETE FROM table_name WHERE column1 = 'value1'")
 ## ⚠️ Important Notes
 
 - The sql.execute() function returns the result of a SELECT query. If the SQL command was an INSERT/UPDATE/DELETE, it returns None.
+- This context manager allows only one SQL query to be executed at a time. To run multiple queries, call sql.execute() separately for each query.
 - Ensure the SQLite database file path provided is correct.
 
 <br>
