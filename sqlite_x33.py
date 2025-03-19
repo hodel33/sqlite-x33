@@ -26,7 +26,7 @@ class SQLiteX33:
             return self.cursor.rowcount  # Return number of affected rows for batch INSERT/UPDATE/DELETE
         else: # Single operation
             self.cursor.execute(query, params)
-            return self.cursor.fetchall()  # Returns the result of a SELECT query; None if the query was INSERT/UPDATE/DELETE
+            return self.cursor.fetchall()  # Returns the result of a SELECT query; empty list [] if the query was INSERT/UPDATE/DELETE
 
 def execute(db_path:str, query:str, params=()):
     with SQLiteX33(db_path) as db:
