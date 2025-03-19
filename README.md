@@ -10,6 +10,9 @@ It simplifies the process of running SQL queries and ensures best practices such
 - **Seamless SQLite Connection Management**: Easily manage SQLite database connections without the hassle.
 - **External Execute Function**: Provides a handy external function to execute SQL commands, making it easier to integrate into other modules.
 - **Foreign Key Support**: Automatically enables FOREIGN KEYS for SQLite 3 out of the box.
+- **Dictionary-like Row Access**: Results are returned as Row objects, allowing access by column name (e.g., `row['name']`).
+- **Query Parameterization**: Support for parameterized queries to prevent SQL injection and handle data types properly.
+- **Batch Operations**: Efficiently execute the same query with multiple parameter sets using SQLite's `executemany` functionality.
 
 <br>
 
@@ -50,32 +53,75 @@ import sqlite_x33 as sql
 
 ### 2. Using the Context Manager
 
-Fetching Data
+Fetching Data (all)
 ```python
 result = sql.execute("path_to_db.db", "SELECT * FROM table_name")
 ```
 
-Inserting Data
+Fetching Data (specific)
 ```python
-sql.execute("path_to_db.db", "INSERT INTO table_name (column1, column2) VALUES ('value1', 'value2')")
+result = sql.execute("path_to_db.db", "SELECT * FROM table_name WHERE column1 = ?", ('value1',))
+```
+
+Accessing Results by Column Name
+```python
+rows = sql.execute("path_to_db.db", "SELECT column1, column2 FROM table_name")
+for row in rows:
+    print(f"Column1: {row['column1']}, Column2: {row['column2']}")
+```
+
+Inserting Data (single query)
+```python
+sql.execute("path_to_db.db", "INSERT INTO table_name (column1, column2) VALUES (?, ?)", ('value1', 'value2'))
+```
+
+Inserting Data (batch query)
+```python
+customers = [
+    ['John Smith', 'john@example.com', '2023-05-15'],
+    ['Sarah Johnson', 'sarah@example.com', '2023-05-16']
+]
+
+rows_affected = sql.execute("customers.db", "INSERT INTO customers (name, email, signup_date) VALUES (?, ?, ?)", customers)
+print(f"Added {rows_affected} new customers")
+```
+
+Inserting Data (dynamic batch query)
+```python
+customers = [
+    {"name": "John Smith", "email": "john@example.com", "signup_date": "2023-05-15"},
+    {"name": "Sarah Johnson", "email": "sarah@example.com", "signup_date": "2023-05-16"}
+]
+
+# Prepare SQL statement with column names from the first dictionary
+columns = ', '.join(customers[0].keys())
+placeholders = ', '.join(['?'] * len(customers[0]))
+sql_query = f"INSERT INTO customers ({columns}) VALUES ({placeholders})"
+
+# Extract values in the correct order for each customer
+customer_data = [list(customer.values()) for customer in customers]
+
+rows_affected = sql.execute("customers.db", sql_query, customer_data)
+print(f"Added {rows_affected} new customers")
 ```
 
 Updating Data
 ```python
-sql.execute("path_to_db.db", "UPDATE table_name SET column1 = 'new_value' WHERE column2 = 'value2'")
+sql.execute("path_to_db.db", "UPDATE table_name SET column1 = ? WHERE column2 = ?", ('new_value', 'value2'))
 ```
 
 Deleting Data
 ```python
-sql.execute("path_to_db.db", "DELETE FROM table_name WHERE column1 = 'value1'")
+sql.execute("path_to_db.db", "DELETE FROM table_name WHERE column1 = ?", ('value1',))
 ```
 
 <br>
 
 ## ⚠️ Important Notes
 
-- The sql.execute() function returns the result of a SELECT query. If the SQL command was an INSERT/UPDATE/DELETE, it returns None.
-- This context manager allows only one SQL query to be executed at a time. To run multiple queries, call sql.execute() separately for each query.
+- For single queries: The sql.execute() function returns the result of a SELECT query. If the SQL command was an INSERT/UPDATE/DELETE, it returns an empty list [].
+- For batch queries: The sql.execute() function returns the number of affected rows.
+- When using parameters, always use placeholders (?) in the query and provide values as a tuple or list.
 - Ensure the SQLite database file path provided is correct.
 
 <br>
