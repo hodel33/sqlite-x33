@@ -119,7 +119,8 @@ sql.execute("path_to_db.db", "DELETE FROM table_name WHERE column1 = ?", ('value
 
 ## ⚠️ Important Notes
 
-- For single queries: The sql.execute() function returns the result of a SELECT query. If the SQL command was an INSERT/UPDATE/DELETE, it returns an empty list [].
+- For single SELECT queries: The sql.execute() function returns the result rows as a list.
+- For single INSERT/UPDATE/DELETE queries: The sql.execute() function returns the number of affected rows.
 - For batch queries: The sql.execute() function returns the number of affected rows.
 - When using parameters, always use placeholders (?) in the query and provide values as a tuple or list.
 - Ensure the SQLite database file path provided is correct.
