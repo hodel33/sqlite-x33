@@ -23,10 +23,10 @@ class SQLiteX33:
     def execute_query(self, query:str, params=()):
         if isinstance(params, list) and len(params) > 0 and isinstance(params[0], (list, tuple)): # Batch operation
             self.cursor.executemany(query, params)
-            return self.cursor.rowcount  # Return number of affected rows for batch INSERT/UPDATE/DELETE
+            return self.cursor.rowcount # Return number of affected rows for batch INSERT/UPDATE/DELETE
         else: # Single operation
             self.cursor.execute(query, params)
-            return self.cursor.fetchall()  # Returns the result of a SELECT query; empty list [] if the query was INSERT/UPDATE/DELETE
+            return self.cursor.rowcount if query.strip().upper().startswith(('INSERT', 'UPDATE', 'DELETE')) else self.cursor.fetchall() # Return rowcount for INSERT/UPDATE/DELETE, fetchall for SELECT
 
 def execute(db_path:str, query:str, params=()):
     with SQLiteX33(db_path) as db:
